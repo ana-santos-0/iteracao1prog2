@@ -51,12 +51,42 @@ class Paciente extends Pessoa {
             double Temp = sc.nextDouble();
         }
 
-        public static void verificarDados(double FC, double Sat, double Temp) {
-            if (FC < 60 || Sat < 80 || Temp < 34) { //Ana, por favor verifica estes dados
+        public static void verificarErros(double FC, double Sat, double Temp) {
+            if (FC < 60 || Sat < 89 || Temp < 35.9) { //Ana, por favor verifica estes dados
                 System.out.println("Erro ao verificar dados");
             }
-            if (FC > 100 || Sat > 100 || Temp > 45) {
+            if (FC > 121 || Sat > 101 || Temp > 39) {
                 System.out.println("Erro ao verificar dados");
+            }
+        }
+
+        public static void verificarValoresFC (double FC) {
+            if (FC <= 100 && FC >= 60) {
+                System.out.println("Frequência Cardíaca Normal");
+            } else if (FC >= 120) {
+                System.out.println("Atenção");
+            } else if (FC < 60 || FC > 120){
+                System.out.println("Crítico");
+            }
+        }
+
+        public static void verificarValoresTemp (double Temp) {
+            if (Temp >= 36 && Temp <= 37.5) {
+                System.out.println("Frequência Cardíaca Normal");
+            } else if (Temp <= 38.5) {
+                System.out.println("Atenção");
+            } else if (Temp < 36 || Temp > 38.5){
+                System.out.println("Crítico");
+            }
+        }
+
+        public static void verificarValoresSat (double Sat) {
+            if (Sat >=95) {
+                System.out.println("Frequência Cardíaca Normal");
+            } else if (Sat >= 90) {
+                System.out.println("Atenção");
+            } else if (Sat < 90){
+                System.out.println("Crítico");
             }
         }
 
@@ -64,6 +94,5 @@ class Paciente extends Pessoa {
             return;
         }
         */
-         */
     }
 }
