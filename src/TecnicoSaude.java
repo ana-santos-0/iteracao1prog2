@@ -11,25 +11,8 @@ public class TecnicoSaude extends Pessoa {
     public String getCategoriaProfissional(){
         return categoriaProfissional;
     }
-}
 
-//representar um sinal vital
-
-class SinalVital {
-    private String tipo;
-    private double valor;
-    private Date data;
-
-public SinalVital(String tipo, double valor, Date data){
-    this.tipo = tipo;
-    this.valor = valor;
-    this.data = data;
-}
-public String getTipo(){
-    return tipo;
-}
-
-public double getValor(){
-    return valor;
-}
+    public String toString(){
+        return categoriaProfissional;
+    }
 }

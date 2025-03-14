@@ -18,7 +18,7 @@ abstract class Pessoa{
         return dataNascimento;
     }
 }
-
+/*
 class Paciente extends Pessoa {
     private double altura;
     private double peso;
@@ -30,8 +30,11 @@ class Paciente extends Pessoa {
         this.peso = peso;
         this.sinaisVitais = new ArrayList<>();
     }
+*/
 
+//nao estou a descobrir qual o problema :/
     public void adicionarSinalVital(SinalVital sinal) {
+        this.sinaisVitais=new ArrayList<>();
         sinaisVitais.add(sinal);
     }
 
