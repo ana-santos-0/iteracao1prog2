@@ -35,9 +35,16 @@ class Paciente extends Pessoa {
         sinaisVitais.add(sinal);
     }
 
+    public List<SinalVital> getSinaisVitais(){
+        return sinaisVitais;
+    }
+
     public class Main {
         public static void main(String[] args) {
-
+Paciente paciente1 = new Paciente ("Ana Tavares", 1992-03-06, 1.70, 58);
+paciente1.adicionarSinalVital(new SinalVital("FC", 85, 2025-03-14));
+paciente1.adicionarSinalVital(new SinalVital("Temp", 37.2, 2025-03-18));
+paciente1.adicionarSinalVital(new SinalVital("Sat", 98, 2025-03-05));
         }
 
         public static void calcularValores() {
@@ -89,8 +96,15 @@ class Paciente extends Pessoa {
                 System.out.println("Crítico");
             }
         }
+        /*
+        public static void Imprimir (double FC, double Sat, double Temp, Pessoa paciente1) {
+            System.out.println("Paciente: " + paciente1.getNome());
+            for (SinalVital : paciente1.getSinaisVitais()){
+                System.out.println()
+            }
+        }
 
-        /*public static float CalcularMedia(double FC, double Sat, double Temp) {
+        public static float CalcularMedia(double FC, double Sat, double Temp) {
             return;
         }
         */
