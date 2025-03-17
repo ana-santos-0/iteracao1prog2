@@ -4,7 +4,7 @@ import java.util.List;
 
 public class Paciente extends Pessoa {
     //private String nome;
-    //private String dataNascimento;
+    //private Date dataNascimento;
     private double altura;
     private double peso;
     private List<SinalVital> sinalVitais;
@@ -57,7 +57,7 @@ public class Paciente extends Pessoa {
     public void setPeso(double peso){
         this.peso = peso;
     }
-
+     @Override
      public String toString() {
         return "Paciente{" +
                 "nome='" + nome + '\'' +
