@@ -16,3 +16,12 @@ public class TecnicoSaude extends Pessoa {
         return categoriaProfissional;
     }
 }
+    @Override
+    public String toString() {
+        return "TecnicoSaude{" +
+                "nome='" + nome + '\'' +
+                ", dataNascimento=" + dataNascimento +
+                ", categoriaProfissional='" + categoriaProfissional + '\'' +
+                '}';
+    }
+}
