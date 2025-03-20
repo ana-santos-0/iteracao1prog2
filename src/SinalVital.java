@@ -25,6 +25,6 @@ public class SinalVital {
     }
 
     public String toString(){
-        return tipo + valor + data.toString();
+        return tipo + ": " + valor + "Data: " + data.toString();
     }
 }

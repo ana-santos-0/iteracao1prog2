@@ -3,8 +3,8 @@ import java.util.Date;
 public class TecnicoSaude extends Pessoa {
     private String categoriaProfissional;
 
-    public TecnicoSaude (String nome, Date datanascimento, String categoriaProfissional){
-        super(nome, datanascimento);
+    public TecnicoSaude (String nome, Date dataNascimento, String categoriaProfissional){
+        super(nome, dataNascimento);
         this.categoriaProfissional = categoriaProfissional;
     }
 
@@ -16,12 +16,10 @@ public class TecnicoSaude extends Pessoa {
         return categoriaProfissional;
     }
 }
-    @Override
-    public String toString() {
+    public String toString(String categoriaProfissional) {
         return "TecnicoSaude{" +
-                "nome='" + nome + '\'' +
-                ", dataNascimento=" + dataNascimento +
+                "nome='" + Pessoa.nome + '\'' +
+                ", dataNascimento=" + Pessoa.dataNascimento +
                 ", categoriaProfissional='" + categoriaProfissional + '\'' +
                 '}';
     }
-}

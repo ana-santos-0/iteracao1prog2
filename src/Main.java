@@ -1,55 +1,24 @@
 import java.util.Scanner;
 import java.util.*;
 
-abstract class Pessoa{
-    protected String nome;
-    protected Date dataNascimento;
-
-    public Pessoa (String nome, Date dataNascimento){
-        this.nome = nome;
-        this.dataNascimento = dataNascimento;
-    }
-
-    public String getNome(){
-        return nome;
-    }
-
-    public Date getDataNascimento(){
-        return dataNascimento;
-    }
-}
-/*
-class Paciente extends Pessoa {
-    private double altura;
-    private double peso;
-    public List<SinalVital> sinaisVitais;
-
-    public Paciente(String nome, Date dataNascimento, double altura, double peso) {
-        super(nome, dataNascimento);
-        this.altura = altura;
-        this.peso = peso;
-        this.sinaisVitais = new ArrayList<>();
-    }
-*/
-
-//nao estou a descobrir qual o problema :/
-    public void adicionarSinalVital(SinalVital sinal) {
-        this.sinaisVitais=new ArrayList<>();
-        sinaisVitais.add(sinal);
-    }
-
-    public List<SinalVital> getSinaisVitais(){
-        return sinaisVitais;
-    }
-
     public class Main {
         public static void main(String[] args) {
-Paciente paciente1 = new Paciente ("Ana Tavares", 1992-03-06, 1.70, 58);
-paciente1.adicionarSinalVital(new SinalVital("FC", 85, 2025-03-14));
-paciente1.adicionarSinalVital(new SinalVital("Temp", 37.2, 2025-03-18));
-paciente1.adicionarSinalVital(new SinalVital("Sat", 98, 2025-03-05));
-        }
+            Scanner scanner = new Scanner(System.in);
+            GestorUCI gestor = new GestorUCI();
+            List<Paciente> pacientes = new ArrayList<>();
 
+
+        Paciente paciente1 = new Paciente ("Ana Tavares", 1992-03-06, 1.70, 58);
+        paciente1.adicionarSinalVital(new SinalVital("Frequência Cardíaca", 85, 2025-03-14));
+        paciente1.adicionarSinalVital(new SinalVital("Temperatura", 37.2, 2025-03-18));
+        paciente1.adicionarSinalVital(new SinalVital("Saturação", 98, 2025-03-05));
+
+        pacientes.add(paciente1);
+
+        System.out.println("Paciente: " + paciente1);
+        System.out.println("Classificação: " + gestor.classificarPaciente(paciente1));
+        }
+/*
         public static void calcularValores() {
             System.out.println("Bem vindo ao programa!");
             System.out.println("Insira o valor de FC");
