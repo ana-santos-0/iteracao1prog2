@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-
+//paciente tem como base a superclasse Pessoa
 public class Paciente extends Pessoa {
     private static int idCounter = 0;
     private int id;
@@ -17,36 +17,36 @@ public class Paciente extends Pessoa {
         this.peso = peso;
         this.sinaisVitais = new ArrayList<>();
     }
-
+//adiciona o sinal vital ao arraylist
     public void adicionarSinalVital(SinalVital sinal){
         sinaisVitais.add(sinal);
     }
-
+//retorna o sinal vital do arraylist
     public List<SinalVital> getSinaisVitais(){
         return sinaisVitais;
     }
-
+//retorna o id
     public int getId() {
         return id;
     }
-
+//retorna o nome
     public String getNome() {
         return nome;
     }
-
+//retona a DN
     public Date getDataNascimento() {
         return dataNascimento;
     }
-
+//retorna a altura
     public double getAltura() {
         return altura;
     }
-
+//retorna o peso
     public double getPeso() {
         return peso;
     }
 
-
+// faz a "ficha" dos dados do paciente
     @Override
     public String toString() {
         return "Paciente{" +

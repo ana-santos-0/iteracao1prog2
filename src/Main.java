@@ -12,10 +12,11 @@ public class Main {
         Monitorizacao monitorizacao = new Monitorizacao();
         boolean exit = false;
 
+        //criação de um login de forma a facilitar e proteger os dados dos utentes
         System.out.println("login:");
         Scanner sc = new Scanner(System.in);
 
-
+//menu inicial
         while (!exit) {
             System.out.println("Menu:");
             System.out.println("1. Criar Paciente");
@@ -25,7 +26,7 @@ public class Main {
             System.out.print("Escolha uma opção: ");
             int opcao = scanner.nextInt();
             scanner.nextLine();
-
+//escolha da opção
             switch (opcao) {
                 case 1:
                     Paciente novoPaciente = criarPaciente();
@@ -63,7 +64,7 @@ public class Main {
             }
         }
     }
-
+//criação de um paciente com os respetivos dados acoplados
     public static Paciente criarPaciente() {
         Scanner scanner = new Scanner(System.in);
         SimpleDateFormat dateFormat = new SimpleDateFormat("YYYY-MM-DD");
@@ -111,7 +112,7 @@ public class Main {
             System.out.println("Paciente não encontrado!");
             return;
         }
-
+//verificação do valor de FC
         boolean inserirMais = true;
         while (inserirMais) {
             double FC;
@@ -119,25 +120,25 @@ public class Main {
                 System.out.print("Insira o valor de FC: ");
                 FC = sc.nextDouble();
                 if (Verificacoes.verificarValoresFC(FC)) break;
-                System.out.println("Valor de Frequência Cardíaca Inválido. Atenção ao valor!");
+                System.out.println("Valor de Frequência Cardíaca Inválido.!");
             }
-
+//verificação do valor de Sat
             double Sat;
             while (true) {
                 System.out.print("Insira o valor de Saturação: ");
                 Sat = sc.nextDouble();
                 if (Verificacoes.verificarValoresSat(Sat)) break;
-                System.out.println("Valor de Saturação inválido. Tente novamente.");
+                System.out.println("Valor de Saturação inválido.");
             }
-
+//verfificação do valor de Temp
             double Temp;
             while (true) {
                 System.out.print("Insira o valor de temperatura: ");
                 Temp = sc.nextDouble();
                 if (Verificacoes.verificarValoresTemp(Temp)) break;
-                System.out.println("Valor de Temperatura inválido. Tente novamente.");
+                System.out.println("Valor de Temperatura inválido.");
             }
-
+//incrição de data e hora nos sinais
             SinalVital sinalVital = new SinalVital(FC, Temp, Sat, "2025-03-22 10:00:00");
 
             pacienteEscolhido.adicionarSinalVital(sinalVital);

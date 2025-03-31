@@ -1,7 +1,7 @@
 import java.util.*;
-
+//interface
 class Monitorizacao {
-
+//opção para efetuar o cáluclo pedido
     public static void menuCalculoMedidas(List<Paciente> pacientes, Monitorizacao monitorizacao, Scanner scanner) {
         System.out.println("\n=== Cálculo de Medidas de Sumário ===");
         System.out.println("1. Média");
@@ -19,9 +19,9 @@ class Monitorizacao {
         System.out.println("3. Todos os pacientes");
         System.out.print("Escolha uma opção: ");
         int tipoCalculo = scanner.nextInt();
-
+//criaçao do arraylist
         List<Paciente> pacientesSelecionados = new ArrayList<>();
-
+//escolha da opção pretendida
         switch (tipoCalculo) {
             case 1:
                 Paciente paciente = selecionarPaciente(pacientes, scanner);
@@ -42,7 +42,7 @@ class Monitorizacao {
             monitorizacao.calcularMedidas(escolha, pacientesSelecionados);
         }
     }
-
+//????? VER
     private static Paciente selecionarPaciente(List<Paciente> pacientes, Scanner scanner) {
         System.out.println("\nLista de Pacientes:");
         for (Paciente p : pacientes) {
@@ -52,7 +52,7 @@ class Monitorizacao {
         int pacienteId = scanner.nextInt();
         return pacientes.stream().filter(p -> p.getId() == pacienteId).findFirst().orElse(null);
     }
-
+//seleção dos pacientes para calculos
     private static List<Paciente> selecionarGrupoPacientes(List<Paciente> pacientes, Scanner scanner) {
         List<Paciente> selecionados = new ArrayList<>();
 
@@ -96,7 +96,7 @@ class Monitorizacao {
                 sat.add(sv.getSaturacaoOxigenio());
             }
         }
-
+//resultado consoante a escolha no menu anterior
         switch (escolha) {
             case 1: // Média
                 System.out.println("Média da Frequência Cardíaca: " + calcularMedia(fc));
@@ -124,7 +124,7 @@ class Monitorizacao {
         double media = calcularMedia(valores);
         return Math.sqrt(valores.stream().mapToDouble(v -> Math.pow(v - media, 2)).average().orElse(0.0));
     }
-
+//classificar o paciente de acordo com os valores dados
     public static void classificarPacientes(List<Paciente> pacientes) {
         Map<String, List<Paciente>> classificacoes = new HashMap<>();
         classificacoes.put("Normal", new ArrayList<>());
@@ -147,7 +147,7 @@ class Monitorizacao {
 
             classificacoes.get(classificacao).add(paciente);
         }
-
+//?????? VER
         System.out.println("\nClassificação dos Pacientes:");
         for (Map.Entry<String, List<Paciente>> entry : classificacoes.entrySet()) {
             System.out.println(entry.getKey() + ": " + entry.getValue().size() + " pacientes");
