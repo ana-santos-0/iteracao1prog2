@@ -1,30 +1,39 @@
-import java.util.Date;
-
 public class SinalVital {
-    private String tipo;
-    private double valor;
-    private Date data;
+    private double frequenciaCardiaca;
+    private double temperaturaCorporal;
+    private double saturacaoOxigenio;
+    private String dataHora;
 
-
-    public SinalVital(String tipo, double valor, Date data){
-        this.tipo = tipo;
-        this.valor = valor;
-        this.data = data;
+    public SinalVital(double frequenciaCardiaca, double temperaturaCorporal, double saturacaoOxigenio, String dataHora) {
+        this.frequenciaCardiaca = frequenciaCardiaca;
+        this.temperaturaCorporal = temperaturaCorporal;
+        this.saturacaoOxigenio = saturacaoOxigenio;
+        this.dataHora = dataHora;
     }
 
-    public String getTipo() {
-        return tipo;
+    public double getFrequenciaCardiaca() {
+        return frequenciaCardiaca;
     }
 
-    public double getValor(){
-        return valor;
+    public double getTemperaturaCorporal() {
+        return temperaturaCorporal;
     }
 
-    public Date getData(){
-        return data;
+    public double getSaturacaoOxigenio() {
+        return saturacaoOxigenio;
     }
 
-    public String toString(){
-        return tipo + ": " + valor + "Data: " + data.toString();
+    public String getDataHora() {
+        return dataHora;
+    }
+
+    @Override
+    public String toString() {
+        return "SinalVital{" +
+                "frequenciaCardiaca=" + frequenciaCardiaca +
+                ", temperaturaCorporal=" + temperaturaCorporal +
+                ", saturacaoOxigenio=" + saturacaoOxigenio +
+                ", dataHora='" + dataHora + '\'' +
+                '}';
     }
 }
