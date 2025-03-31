@@ -1,109 +1,161 @@
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 class Monitorizacao {
 
-    public static void calcularMediasPacientes(List<Paciente> pacientes, Monitorizacao monitorizacao) {
-        Scanner sc = new Scanner(System.in);
+    public static void menuCalculoMedidas(List<Paciente> pacientes, Monitorizacao monitorizacao, Scanner scanner) {
+        System.out.println("\n=== Cálculo de Medidas de Sumário ===");
+        System.out.println("1. Média");
+        System.out.println("2. Desvio Padrão");
+        System.out.println("3. Min/Máx");
+        System.out.println("4. Voltar");
+        System.out.print("Escolha uma opção: ");
+        int escolha = scanner.nextInt();
 
-        System.out.print("Quantos pacientes deseja incluir no cálculo da média? ");
-        int numPacientes = sc.nextInt();
+        if (escolha == 4) return;
+
+        System.out.println("\nCalcular para:");
+        System.out.println("1. Um paciente");
+        System.out.println("2. Um grupo de pacientes");
+        System.out.println("3. Todos os pacientes");
+        System.out.print("Escolha uma opção: ");
+        int tipoCalculo = scanner.nextInt();
 
         List<Paciente> pacientesSelecionados = new ArrayList<>();
 
-        System.out.println("Lista de Pacientes:");
-        for (Paciente paciente : pacientes) {
-            System.out.println("ID: " + paciente.getId() + " - " + paciente);
+        switch (tipoCalculo) {
+            case 1:
+                Paciente paciente = selecionarPaciente(pacientes, scanner);
+                if (paciente != null) pacientesSelecionados.add(paciente);
+                break;
+            case 2:
+                pacientesSelecionados = selecionarGrupoPacientes(pacientes, scanner);
+                break;
+            case 3:
+                pacientesSelecionados.addAll(pacientes);
+                break;
+            default:
+                System.out.println("Opção inválida!");
+                return;
+        }
+
+        if (!pacientesSelecionados.isEmpty()) {
+            monitorizacao.calcularMedidas(escolha, pacientesSelecionados);
+        }
+    }
+
+    private static Paciente selecionarPaciente(List<Paciente> pacientes, Scanner scanner) {
+        System.out.println("\nLista de Pacientes:");
+        for (Paciente p : pacientes) {
+            System.out.println("ID: " + p.getId() + " - " + p);
+        }
+        System.out.print("Escolha o ID do paciente: ");
+        int pacienteId = scanner.nextInt();
+        return pacientes.stream().filter(p -> p.getId() == pacienteId).findFirst().orElse(null);
+    }
+
+    private static List<Paciente> selecionarGrupoPacientes(List<Paciente> pacientes, Scanner scanner) {
+        List<Paciente> selecionados = new ArrayList<>();
+
+        System.out.print("\nQuantos pacientes deseja incluir? ");
+        int numPacientes = scanner.nextInt();
+
+        if (numPacientes < 2) {
+            System.out.println("Erro: Deve selecionar pelo menos 2 pacientes!");
+            return selecionados;
+        }
+
+        for (Paciente p : pacientes) {
+            System.out.println("ID: " + p.getId() + " - " + p);
         }
 
         for (int i = 0; i < numPacientes; i++) {
             System.out.print("Escolha o ID do paciente: ");
-            int pacienteId = sc.nextInt();
+            int pacienteId = scanner.nextInt();
+            Paciente paciente = pacientes.stream().filter(p -> p.getId() == pacienteId).findFirst().orElse(null);
 
-            Paciente pacienteSelecionado = pacientes.stream()
-                    .filter(p -> p.getId() == pacienteId)
-                    .findFirst()
-                    .orElse(null);
-
-            if (pacienteSelecionado == null) {
-                System.out.println("Paciente não encontrado! Tente novamente.");
-                i--; // Decrementa para que o usuário possa inserir um ID válido
-            } else if (pacientesSelecionados.contains(pacienteSelecionado)) {
-                System.out.println("Este paciente já foi selecionado! Escolha outro.");
-                i--; // Decrementa para evitar contagem errada
+            if (paciente == null || selecionados.contains(paciente)) {
+                System.out.println("Paciente inválido ou já selecionado!");
+                i--;
             } else {
-                pacientesSelecionados.add(pacienteSelecionado);
+                selecionados.add(paciente);
             }
         }
-
-        List<Double> mediasFC = new ArrayList<>();
-        List<Double> mediasTemp = new ArrayList<>();
-        List<Double> mediasSat = new ArrayList<>();
-
-        for (Paciente paciente : pacientesSelecionados) {
-            for (SinalVital sv : paciente.getSinaisVitais()) {
-                mediasFC.add(sv.getFrequenciaCardiaca());
-                mediasTemp.add(sv.getTemperaturaCorporal());
-                mediasSat.add(sv.getSaturacaoOxigenio());
-            }
-        }
-
-        System.out.println("Média da Frequência Cardíaca: " + monitorizacao.calcularMedia(mediasFC));
-        System.out.println("Média da Temperatura: " + monitorizacao.calcularMedia(mediasTemp));
-        System.out.println("Média da Saturação: " + monitorizacao.calcularMedia(mediasSat));
+        return selecionados;
     }
 
-    public double calcularMedia(List<Double> valores) {
-        double soma = 0;
-        for (double valor : valores) {
-            soma += valor;
+
+    public void calcularMedidas(int escolha, List<Paciente> pacientes) {
+        List<Double> fc = new ArrayList<>();
+        List<Double> temp = new ArrayList<>();
+        List<Double> sat = new ArrayList<>();
+
+        for (Paciente p : pacientes) {
+            for (SinalVital sv : p.getSinaisVitais()) {
+                fc.add(sv.getFrequenciaCardiaca());
+                temp.add(sv.getTemperaturaCorporal());
+                sat.add(sv.getSaturacaoOxigenio());
+            }
         }
-        return soma / valores.size();
+
+        switch (escolha) {
+            case 1: // Média
+                System.out.println("Média da Frequência Cardíaca: " + calcularMedia(fc));
+                System.out.println("Média da Temperatura: " + calcularMedia(temp));
+                System.out.println("Média da Saturação: " + calcularMedia(sat));
+                break;
+            case 2: // Desvio Padrão
+                System.out.println("Desvio Padrão da Frequência Cardíaca: " + calcularDesvioPadrao(fc));
+                System.out.println("Desvio Padrão da Temperatura: " + calcularDesvioPadrao(temp));
+                System.out.println("Desvio Padrão da Saturação: " + calcularDesvioPadrao(sat));
+                break;
+            case 3: // Min/Máx
+                System.out.println("Frequência Cardíaca - Mínimo: " + Collections.min(fc) + ", Máximo: " + Collections.max(fc));
+                System.out.println("Temperatura - Mínimo: " + Collections.min(temp) + ", Máximo: " + Collections.max(temp));
+                System.out.println("Saturação - Mínimo: " + Collections.min(sat) + ", Máximo: " + Collections.max(sat));
+                break;
+        }
+    }
+
+    public static double calcularMedia(List<Double> valores) {
+        return valores.stream().mapToDouble(v -> v).average().orElse(0.0);
     }
 
     public double calcularDesvioPadrao(List<Double> valores) {
         double media = calcularMedia(valores);
-        double soma = 0;
-        for (double valor : valores) {
-            soma += Math.pow(valor - media, 2);
-        }
-        return Math.sqrt(soma / valores.size());
+        return Math.sqrt(valores.stream().mapToDouble(v -> Math.pow(v - media, 2)).average().orElse(0.0));
     }
 
-    public double calcularMinimo(List<Double> valores) {
-        double min = Double.MAX_VALUE;
-        for (double valor : valores) {
-            if (valor < min) {
-                min = valor;
+    public static void classificarPacientes(List<Paciente> pacientes) {
+        Map<String, List<Paciente>> classificacoes = new HashMap<>();
+        classificacoes.put("Normal", new ArrayList<>());
+        classificacoes.put("Atenção", new ArrayList<>());
+        classificacoes.put("Crítico", new ArrayList<>());
+
+        for (Paciente paciente : pacientes) {
+            double FC = calcularMedia(paciente.getSinaisVitais().stream().map(SinalVital::getFrequenciaCardiaca).toList());
+            double temp = calcularMedia(paciente.getSinaisVitais().stream().map(SinalVital::getTemperaturaCorporal).toList());
+            double sat = calcularMedia(paciente.getSinaisVitais().stream().map(SinalVital::getSaturacaoOxigenio).toList());
+
+            String classificacao;
+            if (FC >= 60 && FC <= 100 && temp >= 36 && temp <= 37.5 && sat >= 95) {
+                classificacao = "Normal";
+            } else if ((FC > 100 && FC <= 120) || (temp > 37.5 && temp <= 38.5) || (sat >= 90 && sat < 95)) {
+                classificacao = "Atenção";
+            } else {
+                classificacao = "Crítico";
+            }
+
+            classificacoes.get(classificacao).add(paciente);
+        }
+
+        System.out.println("\nClassificação dos Pacientes:");
+        for (Map.Entry<String, List<Paciente>> entry : classificacoes.entrySet()) {
+            System.out.println(entry.getKey() + ": " + entry.getValue().size() + " pacientes");
+            for (Paciente p : entry.getValue()) {
+                System.out.println("- " + p);
             }
         }
-        return min;
     }
 
-    public double calcularMaximo(List<Double> valores) {
-        double max = Double.MIN_VALUE;
-        for (double valor : valores) {
-            if (valor > max) {
-                max = valor;
-            }
-        }
-        return max;
-    }
-
-    public String classificarPaciente(Paciente paciente) {
-        double FC = calcularMedia(paciente.getSinaisVitais().stream().map(SinalVital::getFrequenciaCardiaca).toList());
-        double temp = calcularMedia(paciente.getSinaisVitais().stream().map(SinalVital::getTemperaturaCorporal).toList());
-        double sat = calcularMedia(paciente.getSinaisVitais().stream().map(SinalVital::getSaturacaoOxigenio).toList());
-
-        if (FC >= 60 && FC <= 100 && temp >= 36 && temp <= 37.5 && sat >= 95) {
-            return "Normal";
-        } else if ((FC > 100 && FC <= 120) || (temp > 37.5 && temp <= 38.5) || (sat >= 90 && sat < 95)) {
-            return "Atenção";
-        } else {
-            return "Crítico";
-        }
-    }
 
 }
