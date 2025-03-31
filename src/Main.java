@@ -1,84 +1,161 @@
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 import java.util.Scanner;
-import java.util.*;
 
-    public class Main {
-        public static void main(String[] args) {
-            Scanner scanner = new Scanner(System.in);
-            GestorUCI gestor = new GestorUCI();
-            List<Paciente> pacientes = new ArrayList<>();
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        List<Paciente> pacientes = new ArrayList<>();
+        Monitorizacao monitorizacao = new Monitorizacao();
+        boolean exit = false;
+
+        System.out.println("login:");
+        Scanner sc = new Scanner(System.in);
 
 
-        Paciente paciente1 = new Paciente ("Ana Tavares", 1992-03-06, 1.70, 58);
-        paciente1.adicionarSinalVital(new SinalVital("Frequência Cardíaca", 85, 2025-03-14));
-        paciente1.adicionarSinalVital(new SinalVital("Temperatura", 37.2, 2025-03-18));
-        paciente1.adicionarSinalVital(new SinalVital("Saturação", 98, 2025-03-05));
+        while (!exit) {
+            System.out.println("Menu:");
+            System.out.println("1. Criar Paciente");
+            System.out.println("2. Inserir Valores de Sinais Vitais");
+            System.out.println("3. Calcular Médias de Pacientes");
+            System.out.println("4. Sair");
+            System.out.print("Escolha uma opção: ");
+            int opcao = scanner.nextInt();
+            scanner.nextLine();
 
-        pacientes.add(paciente1);
+            switch (opcao) {
+                case 1:
+                    Paciente novoPaciente = criarPaciente();
+                    if (novoPaciente != null) {
+                        pacientes.add(novoPaciente);
+                        System.out.println("Paciente criado com sucesso!");
+                    } else {
+                        System.out.println("Erro ao criar o paciente.");
+                    }
+                    break;
 
-        System.out.println("Paciente: " + paciente1);
-        System.out.println("Classificação: " + gestor.classificarPaciente(paciente1));
-        }
-/*
-        public static void calcularValores() {
-            System.out.println("Bem vindo ao programa!");
-            System.out.println("Insira o valor de FC");
-            Scanner sc = new Scanner(System.in);
-            double FC = sc.nextDouble();
-            System.out.println("Insira o valor de Saturação");
-            double Sat = sc.nextDouble();
-            System.out.println("Insira o valor de temperatura");
-            double Temp = sc.nextDouble();
-        }
+                case 2:
+                    if (!pacientes.isEmpty()) {
+                        pedirValores(pacientes);
+                    } else {
+                        System.out.println("Não há pacientes registados.");
+                    }
+                    break;
 
-        public static void verificarErros(double FC, double Sat, double Temp) {
-            if (FC < 60 || Sat < 89 || Temp < 35.9) { //Ana, por favor verifica estes dados
-                System.out.println("Erro ao verificar dados");
-            }
-            if (FC > 121 || Sat > 101 || Temp > 39) {
-                System.out.println("Erro ao verificar dados");
-            }
-        }
+                case 3:
+                    if (!pacientes.isEmpty()) {
+                        Monitorizacao.calcularMediasPacientes(pacientes, monitorizacao);
+                    } else {
+                        System.out.println("Não há pacientes registados.");
+                    }
+                    break;
 
-        public static void verificarValoresFC (double FC) {
-            if (FC <= 100 && FC >= 60) {
-                System.out.println("Frequência Cardíaca Normal");
-            } else if (FC >= 120) {
-                System.out.println("Atenção");
-            } else if (FC < 60 || FC > 120){
-                System.out.println("Crítico");
-            }
-        }
+                case 4:
+                    exit = true;
+                    System.out.println("A sair...");
+                    break;
 
-        public static void verificarValoresTemp (double Temp) {
-            if (Temp >= 36 && Temp <= 37.5) {
-                System.out.println("Frequência Cardíaca Normal");
-            } else if (Temp <= 38.5) {
-                System.out.println("Atenção");
-            } else if (Temp < 36 || Temp > 38.5){
-                System.out.println("Crítico");
-            }
-        }
-
-        public static void verificarValoresSat (double Sat) {
-            if (Sat >=95) {
-                System.out.println("Frequência Cardíaca Normal");
-            } else if (Sat >= 90) {
-                System.out.println("Atenção");
-            } else if (Sat < 90){
-                System.out.println("Crítico");
+                default:
+                    System.out.println("Opção inválida. Tente novamente.");
             }
         }
-        /*
-        public static void Imprimir (double FC, double Sat, double Temp, Pessoa paciente1) {
-            System.out.println("Paciente: " + paciente1.getNome());
-            for (SinalVital : paciente1.getSinaisVitais()){
-                System.out.println()
-            }
+    }
+
+    public static Paciente criarPaciente() {
+        Scanner scanner = new Scanner(System.in);
+        SimpleDateFormat dateFormat = new SimpleDateFormat("YYYY-MM-DD");
+
+        System.out.print("Nome: ");
+        String nome = scanner.nextLine();
+
+        System.out.print("Data de Nascimento (YYYY-MM-DD): ");
+        String dataNascimentoStr = scanner.nextLine();
+        Date dataNascimento;
+        try {
+            dataNascimento = dateFormat.parse(dataNascimentoStr);
+        } catch (ParseException e) {
+            e.printStackTrace();
+            System.out.println("Data de nascimento inválida. Use o formato YYYY-MM-DD.");
+            return null;
         }
 
-        public static float CalcularMedia(double FC, double Sat, double Temp) {
+        System.out.print("Altura (em centimetros): ");
+        double altura = scanner.nextDouble();
+
+        System.out.print("Peso (em kg): ");
+        double peso = scanner.nextDouble();
+
+        return new Paciente(nome, dataNascimento, altura, peso);
+    }
+
+    public static void pedirValores(List<Paciente> pacientes) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Lista de Pacientes:");
+        for (Paciente paciente : pacientes) {
+            System.out.println(paciente);
+        }
+
+        System.out.print("Escolha o ID do paciente para inserir os valores de sinais vitais: ");
+        int pacienteId = sc.nextInt();
+
+        Paciente pacienteEscolhido = pacientes.stream()
+                .filter(p -> p.getId() == pacienteId)
+                .findFirst()
+                .orElse(null);
+
+        if (pacienteEscolhido == null) {
+            System.out.println("Paciente não encontrado!");
             return;
         }
-        */
+
+        boolean inserirMais = true;
+        while (inserirMais) {
+            double FC;
+            while (true) {
+                System.out.print("Insira o valor de FC: ");
+                FC = sc.nextDouble();
+                if (Verificacoes.verificarValoresFC(FC)) break;
+                System.out.println("Valor de Frequência Cardíaca Inválido. Atenção ao valor!");
+            }
+
+            double Sat;
+            while (true) {
+                System.out.print("Insira o valor de Saturação: ");
+                Sat = sc.nextDouble();
+                if (Verificacoes.verificarValoresSat(Sat)) break;
+                System.out.println("Valor de Saturação inválido. Tente novamente.");
+            }
+
+            double Temp;
+            while (true) {
+                System.out.print("Insira o valor de temperatura: ");
+                Temp = sc.nextDouble();
+                if (Verificacoes.verificarValoresTemp(Temp)) break;
+                System.out.println("Valor de Temperatura inválido. Tente novamente.");
+            }
+
+            SinalVital sinalVital = new SinalVital(FC, Temp, Sat, "2025-03-22 10:00:00");
+
+            pacienteEscolhido.adicionarSinalVital(sinalVital);
+            System.out.println("Sinal Vital adicionado com sucesso!");
+
+            // Perguntar se deseja inserir mais sinais vitais
+            System.out.print("Deseja inserir mais sinais vitais para este paciente? (s/n): ");
+            String resposta = sc.next();
+            if (!resposta.equalsIgnoreCase("s")) {
+                inserirMais = false;
+            }
+        }
+
+        // Exibir todos os sinais vitais do paciente
+        System.out.println("Sinais Vitais do Paciente " + pacienteEscolhido.getNome() + ":");
+        for (SinalVital sv : pacienteEscolhido.getSinaisVitais()) {
+            System.out.println(sv);
+        }
     }
+
 }
