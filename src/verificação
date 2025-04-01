@@ -15,8 +15,7 @@ public class Verificacoes extends RuntimeException {
             return true;
         }
     }
-
-    public static boolean verificarValoresTemp(double Temp) {
+   public static boolean verificarValoresTemp(double Temp) {
         if (Temp < (double)36.0F && Temp >= (double)0.0F) {
             System.out.println("Crítico");
             return true;
@@ -45,7 +44,7 @@ public class Verificacoes extends RuntimeException {
             return false;
         }
     }
-    public Verificacoes (String message) {
+    public Verificacoes(String message) {
         super(message);
     }
 }
