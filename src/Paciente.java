@@ -33,7 +33,7 @@ public class Paciente extends Pessoa {
     public String getNome() {
         return nome;
     }
-//retona a DN
+//retorna a DN
     public Date getDataNascimento() {
         return dataNascimento;
     }
