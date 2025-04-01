@@ -138,10 +138,10 @@ class Monitorizacao {
         return valores.stream().mapToDouble(v -> v).average().orElse(0.0);
     }
 
-    public double calcularDesvioPadrao(List<Double> valores) {
-        double media = calcularMedia(valores);
-        return Math.sqrt(valores.stream().mapToDouble(v -> Math.pow(v - media, 2)).average().orElse(0.0));
-    }
+  public static double calcularDesvioPadrao(List<Double> valores) {
+        double desvioPadrao = calcularDesvioPadrao(valores);
+        return Math.sqrt(valores.stream().mapToDouble(v -> Math.pow(v - desvioPadrao, 2)).average().orElse(0.0));
+      
 //classificar o paciente de acordo com os valores dados
       public static void classificarPacientes(SistemaUCI sistemaUCI) {
         List<Paciente> pacientes = sistemaUCI.getPacientes();
