@@ -2,48 +2,64 @@ import java.util.*;
 //interface
 class Monitorizacao {
 //opção para efetuar o cáluclo pedido
-    public static void menuCalculoMedidas(List<Paciente> pacientes, Monitorizacao monitorizacao, Scanner scanner) {
-        System.out.println("\n=== Cálculo de Medidas de Sumário ===");
-        System.out.println("1. Média");
-        System.out.println("2. Desvio Padrão");
-        System.out.println("3. Min/Máx");
-        System.out.println("4. Voltar");
-        System.out.print("Escolha uma opção: ");
-        int escolha = scanner.nextInt();
+    public static void menuCalculoMedidas(SistemaUCI sistemaUCI, Scanner scanner) {
+        boolean voltarAoMenuPrincipal = false;
+        while (!voltarAoMenuPrincipal) {
 
+            System.out.println("\nMenu - Cálculo de Medidas de Sumário:");
+            System.out.println("1. Média");
+            System.out.println("2. Desvio Padrão");
+            System.out.println("3. Min/Máx");
+            System.out.println("4. Voltar ao Menu Principal");
+            System.out.print("Escolha uma opção: ");
+            
+            int opcao = scanner.nextInt();
+            scanner.nextLine();
+            
         if (escolha == 4) return;
-
+            voltarAoMenuPrincipal = true;
+                System.out.println("Voltando ao menu principal...");
+                return;
+            }
+        
         System.out.println("\nCalcular para:");
-        System.out.println("1. Um paciente");
-        System.out.println("2. Um grupo de pacientes");
-        System.out.println("3. Todos os pacientes");
-        System.out.print("Escolha uma opção: ");
-        int tipoCalculo = scanner.nextInt();
+            System.out.println("1. Um paciente específico");
+            System.out.println("2. Um grupo de pacientes");
+            System.out.println("3. Todos os pacientes");
+            System.out.print("Escolha uma opção: ");
+
+            int escolha = scanner.nextInt();
+            scanner.nextLine();
+        
 //criaçao do arraylist
         List<Paciente> pacientesSelecionados = new ArrayList<>();
 //escolha da opção pretendida
-        switch (tipoCalculo) {
-            case 1:
-                Paciente paciente = selecionarPaciente(pacientes, scanner);
-                if (paciente != null) pacientesSelecionados.add(paciente);
-                break;
-            case 2:
-                pacientesSelecionados = selecionarGrupoPacientes(pacientes, scanner);
-                break;
-            case 3:
-                pacientesSelecionados.addAll(pacientes);
-                break;
-            default:
-                System.out.println("Opção inválida!");
-                return;
+        switch (escolha) {
+                case 1:
+                    Paciente paciente = selecionarPaciente(sistemaUCI.getPacientes(), scanner);
+                    if (paciente != null) pacientesSelecionados.add(paciente);
+                    break;
+                case 2:
+                    pacientesSelecionados = selecionarGrupoPacientes(sistemaUCI.getPacientes(), scanner);
+                    break;
+                case 3:
+                    pacientesSelecionados.addAll(sistemaUCI.getPacientes());
+                    break;
+                default:
+                    System.out.println("Opção inválida!");
+                    return;
         }
 
-        if (!pacientesSelecionados.isEmpty()) {
-            monitorizacao.calcularMedidas(escolha, pacientesSelecionados);
+            if (!pacientesSelecionados.isEmpty()) {
+                calcularMedidas(escolha, pacientesSelecionados);
+            } else {
+                System.out.println("Nenhum paciente selecionado.");
+            }
         }
     }
+        
 //????? VER
-    private static Paciente selecionarPaciente(List<Paciente> pacientes, Scanner scanner) {
+   private static Paciente selecionarPaciente(List<Paciente> pacientes, Scanner scanner) {
         System.out.println("\nLista de Pacientes:");
         for (Paciente p : pacientes) {
             System.out.println("ID: " + p.getId() + " - " + p);
@@ -51,6 +67,7 @@ class Monitorizacao {
         System.out.print("Escolha o ID do paciente: ");
         int pacienteId = scanner.nextInt();
         return pacientes.stream().filter(p -> p.getId() == pacienteId).findFirst().orElse(null);
+    
     }
 //seleção dos pacientes para calculos
     private static List<Paciente> selecionarGrupoPacientes(List<Paciente> pacientes, Scanner scanner) {
@@ -68,7 +85,7 @@ class Monitorizacao {
             System.out.println("ID: " + p.getId() + " - " + p);
         }
 
-        for (int i = 0; i < numPacientes; i++) {
+       for (int i = 0; i < numPacientes; i++) {
             System.out.print("Escolha o ID do paciente: ");
             int pacienteId = scanner.nextInt();
             Paciente paciente = pacientes.stream().filter(p -> p.getId() == pacienteId).findFirst().orElse(null);
@@ -84,7 +101,7 @@ class Monitorizacao {
     }
 
 
-    public void calcularMedidas(int escolha, List<Paciente> pacientes) {
+   public static void calcularMedidas(int escolha, List<Paciente> pacientes) {
         List<Double> fc = new ArrayList<>();
         List<Double> temp = new ArrayList<>();
         List<Double> sat = new ArrayList<>();
@@ -96,8 +113,9 @@ class Monitorizacao {
                 sat.add(sv.getSaturacaoOxigenio());
             }
         }
+
 //resultado consoante a escolha no menu anterior
-        switch (escolha) {
+       switch (escolha) {
             case 1: // Média
                 System.out.println("Média da Frequência Cardíaca: " + calcularMedia(fc));
                 System.out.println("Média da Temperatura: " + calcularMedia(temp));
@@ -125,13 +143,25 @@ class Monitorizacao {
         return Math.sqrt(valores.stream().mapToDouble(v -> Math.pow(v - media, 2)).average().orElse(0.0));
     }
 //classificar o paciente de acordo com os valores dados
-    public static void classificarPacientes(List<Paciente> pacientes) {
+      public static void classificarPacientes(SistemaUCI sistemaUCI) {
+        List<Paciente> pacientes = sistemaUCI.getPacientes();
         Map<String, List<Paciente>> classificacoes = new HashMap<>();
+
         classificacoes.put("Normal", new ArrayList<>());
         classificacoes.put("Atenção", new ArrayList<>());
         classificacoes.put("Crítico", new ArrayList<>());
 
         for (Paciente paciente : pacientes) {
+            if (paciente.getSinaisVitais().isEmpty()) {
+                System.out.println("Paciente " + paciente.getNome() + " não possui sinais vitais registrados.");
+                continue;
+
+        for (Paciente paciente : pacientes) {
+            double FC = calcularMedia(paciente.getSinaisVitais().stream().map(SinalVital::getFrequenciaCardiaca).toList());
+            double temp = calcularMedia(paciente.getSinaisVitais().stream().map(SinalVital::getTemperaturaCorporal).toList());
+            double sat = calcularMedia(paciente.getSinaisVitais().stream().map(SinalVital::getSaturacaoOxigenio).toList());
+
+           }
             double FC = calcularMedia(paciente.getSinaisVitais().stream().map(SinalVital::getFrequenciaCardiaca).toList());
             double temp = calcularMedia(paciente.getSinaisVitais().stream().map(SinalVital::getTemperaturaCorporal).toList());
             double sat = calcularMedia(paciente.getSinaisVitais().stream().map(SinalVital::getSaturacaoOxigenio).toList());
@@ -144,10 +174,11 @@ class Monitorizacao {
             } else {
                 classificacao = "Crítico";
             }
-
-            classificacoes.get(classificacao).add(paciente);
         }
 //?????? VER
+      classificacoes.get(classificacao).add(paciente);
+        }
+
         System.out.println("\nClassificação dos Pacientes:");
         for (Map.Entry<String, List<Paciente>> entry : classificacoes.entrySet()) {
             System.out.println(entry.getKey() + ": " + entry.getValue().size() + " pacientes");
@@ -156,6 +187,5 @@ class Monitorizacao {
             }
         }
     }
-
-
 }
+
