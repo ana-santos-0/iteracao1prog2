@@ -1,6 +1,6 @@
 import java.util.*;
 //interface
-class Monitorizacao {
+class Monitorizacao extends SinalVital {
 //opção para efetuar o cáluclo pedido
     public static void menuCalculoMedidas(List<Paciente> pacientes, Monitorizacao monitorizacao, Scanner scanner) {
         System.out.println("\n=== Cálculo de Medidas de Sumário ===");

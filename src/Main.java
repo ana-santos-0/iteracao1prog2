@@ -5,7 +5,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 
-public class Main {
+public class Main extends Monitorizacao {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         List<Paciente> pacientes = new ArrayList<>();
@@ -65,7 +65,7 @@ public class Main {
         }
     }
 //criação de um paciente com os respetivos dados acoplados
-    public static Paciente criarPaciente() {
+    public static Paciente criarPaciente(){
         Scanner scanner = new Scanner(System.in);
         SimpleDateFormat dateFormat = new SimpleDateFormat("YYYY-MM-DD");
 
