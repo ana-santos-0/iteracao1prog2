@@ -10,6 +10,7 @@ import java.util.Calendar;
 public class Paciente extends Pessoa {
     private List<Medicao> medicoes;
 
+
     public Paciente(String nome, Date dataNascimento, double altura, double peso) {
         super(nome, dataNascimento, altura, peso);
         medicoes = new ArrayList<Medicao>();

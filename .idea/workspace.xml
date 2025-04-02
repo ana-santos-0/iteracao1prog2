@@ -5,30 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0fa05dfe-1b8e-402e-86f2-02fe34441439" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Hospital.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Hospital.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Monitorizacao.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Paciente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Paciente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Pessoa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pessoa.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SinalVital.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TecnicoSaude.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TecnicoSaude.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/projeto programacao II novo/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/projeto programacao II novo/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/projeto programacao II novo/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/projeto programacao II novo/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/projeto programacao II novo/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/projeto programacao II novo/projeto programacao II novo.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/projeto programacao II novo/src/FrequenciaCardiaca.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/projeto programacao II novo/src/Hospital.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/projeto programacao II novo/src/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/projeto programacao II novo/src/Medicao.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/projeto programacao II novo/src/Paciente.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/projeto programacao II novo/src/Pessoa.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/projeto programacao II novo/src/SaturacaoOxigenio.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/projeto programacao II novo/src/TecnicoSaude.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/projeto programacao II novo/src/Temperatura.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/verificação" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,34 +18,34 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 1
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1
+}</component>
   <component name="ProjectId" id="2v9NTSCVKdDL0RXc2Bwra73f808" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Main.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "master",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/anareis/Desktop/projeto prog II/iteracao1prog2",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "onboarding.tips.debug.path": "/Users/anareis/Desktop/projeto prog II/iteracao1prog2/output/src/Main.java",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/anareis/Desktop/projeto prog II/iteracao1prog2&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;/Users/anareis/Desktop/projeto prog II/iteracao1prog2/output/src/Main.java&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -82,7 +62,9 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1743553338492</updated>
-      <workItem from="1743553339766" duration="615000" />
+      <workItem from="1743553339766" duration="1391000" />
+      <workItem from="1743555307248" duration="85000" />
+      <workItem from="1743555406647" duration="558000" />
     </task>
     <servers />
   </component>
