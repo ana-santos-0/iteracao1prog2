@@ -1,23 +1,34 @@
 import java.util.Date;
-//superclasse de paciente e tecnico de saude
+
+/**
+ * Classe base que representa uma pessoa.
+ */
 public class Pessoa {
     private String nome;
     private Date dataNascimento;
-//por serem variaveis private
-    public Pessoa(String nome, Date dataNascimento){
-        this.nome=nome;
-        this.dataNascimento=dataNascimento;
+    private double altura;
+    private double peso;
+
+    public Pessoa(String nome, Date dataNascimento, double altura, double peso) {
+        this.nome = nome;
+        this.dataNascimento = dataNascimento;
+        this.altura = altura;
+        this.peso = peso;
     }
 
     public String getNome() {
         return nome;
     }
 
-    public Date getDateNascimento() {
+    public Date getDataNascimento() {
         return dataNascimento;
     }
-//retorna a data de nascimento para o ecrã
-    public String toString(){
-        return nome + ("Data de Nascimento: " + dataNascimento);
+
+    public double getAltura() {
+        return altura;
+    }
+
+    public double getPeso() {
+        return peso;
     }
 }

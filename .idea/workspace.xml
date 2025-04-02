@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="0fa05dfe-1b8e-402e-86f2-02fe34441439" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Monitorizacao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Paciente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Paciente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Pessoa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pessoa.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SinalVital.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TecnicoSaude.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TecnicoSaude.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/projeto programacao II novo/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/projeto programacao II novo/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/projeto programacao II novo/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/projeto programacao II novo/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/projeto programacao II novo/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/projeto programacao II novo/projeto programacao II novo.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/projeto programacao II novo/src/FrequenciaCardiaca.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/projeto programacao II novo/src/Hospital.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/projeto programacao II novo/src/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/projeto programacao II novo/src/Medicao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/projeto programacao II novo/src/Paciente.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/projeto programacao II novo/src/Pessoa.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/projeto programacao II novo/src/SaturacaoOxigenio.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/projeto programacao II novo/src/TecnicoSaude.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/projeto programacao II novo/src/Temperatura.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/verificação" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 1
+}]]></component>
+  <component name="ProjectId" id="2v9NTSCVKdDL0RXc2Bwra73f808" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/Users/anareis/Desktop/projeto prog II/iteracao1prog2",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "onboarding.tips.debug.path": "/Users/anareis/Desktop/projeto prog II/iteracao1prog2/output/src/Main.java",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-a94e463ab2e7-intellij.indexing.shared.core-IU-243.26053.27" />
+        <option value="bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-IU-243.26053.27" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0fa05dfe-1b8e-402e-86f2-02fe34441439" name="Changes" comment="" />
+      <created>1743553338492</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1743553338492</updated>
+      <workItem from="1743553339766" duration="615000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/output/src/Main.java</url>
+          <line>11</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>

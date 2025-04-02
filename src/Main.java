@@ -1,162 +1,92 @@
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        List<Paciente> pacientes = new ArrayList<>();
-        Monitorizacao monitorizacao = new Monitorizacao();
-        boolean exit = false;
+        // Criar pacientes
+        Paciente paciente1 = new Paciente("João Silva", new Date(1990-1900, 5, 15), 1.75, 70);
+        Paciente paciente2 = new Paciente("Maria Santos", new Date(1985-1900, 2, 10), 1.68, 65);
+        Paciente paciente3 = new Paciente("Carlos Pereira", new Date(2000-1900, 7, 22), 1.80, 80);
+        Paciente paciente4 = new Paciente("Ana Costa", new Date(1995-1900, 10, 5), 1.60, 55);
 
-        //criação de um login de forma a facilitar e proteger os dados dos utentes
-        System.out.println("login:");
-        Scanner sc = new Scanner(System.in);
+        // Criar técnico de saúde
+        TecnicoSaude tecnico = new TecnicoSaude("Carlos Oliveira", new Date(1980-1900, 3, 20), 1.80, 80);
 
-//menu inicial
-        while (!exit) {
-            System.out.println("Menu:");
-            System.out.println("1. Criar Paciente");
-            System.out.println("2. Inserir Valores de Sinais Vitais");
-            System.out.println("3. Calcular Médias de Pacientes");
-            System.out.println("4. Sair");
-            System.out.print("Escolha uma opção: ");
-            int opcao = scanner.nextInt();
-            scanner.nextLine();
-//escolha da opção
-            switch (opcao) {
-                case 1:
-                    Paciente novoPaciente = criarPaciente();
-                    if (novoPaciente != null) {
-                        pacientes.add(novoPaciente);
-                        System.out.println("Paciente criado com sucesso!");
-                    } else {
-                        System.out.println("Erro ao criar o paciente.");
-                    }
-                    break;
+        // Criar medições com diferentes datas
+        FrequenciaCardiaca fc1 = new FrequenciaCardiaca(criarData(2025, 3, 1), 85); // 1 de março de 2025
+        Temperatura temp1 = new Temperatura(criarData(2025, 3, 1), 37.0); // 1 de março de 2025
+        SaturacaoOxigenio sat1 = new SaturacaoOxigenio(criarData(2025, 3, 1), 97.0); // 1 de março de 2025
 
-                case 2:
-                    if (!pacientes.isEmpty()) {
-                        pedirValores(pacientes);
-                    } else {
-                        System.out.println("Não há pacientes registados.");
-                    }
-                    break;
+        FrequenciaCardiaca fc2 = new FrequenciaCardiaca(criarData(2025, 3, 8), 90); // 10 de março de 2025
+        Temperatura temp2 = new Temperatura(criarData(2025, 3, 8), 37.5); // 10 de março de 2025
+        SaturacaoOxigenio sat2 = new SaturacaoOxigenio(criarData(2025, 3, 8), 95.0); // 10 de março de 2025
 
-                case 3:
-                    if (!pacientes.isEmpty()) {
-                        Monitorizacao.calcularMediasPacientes(pacientes, monitorizacao);
-                    } else {
-                        System.out.println("Não há pacientes registados.");
-                    }
-                    break;
+        FrequenciaCardiaca fc3 = new FrequenciaCardiaca(criarData(2025, 3, 3), 92); // 3 de março de 2025
+        Temperatura temp3 = new Temperatura(criarData(2025, 3, 3), 37.2); // 3 de março de 2025
+        SaturacaoOxigenio sat3 = new SaturacaoOxigenio(criarData(2025, 3, 3), 98.0); // 3 de março de 2025
 
-                case 4:
-                    exit = true;
-                    System.out.println("A sair...");
-                    break;
+        FrequenciaCardiaca fc4 = new FrequenciaCardiaca(criarData(2025, 3, 5), 80); // 5 de março de 2025
+        Temperatura temp4 = new Temperatura(criarData(2025, 3, 5), 36.8); // 5 de março de 2025
+        SaturacaoOxigenio sat4 = new SaturacaoOxigenio(criarData(2025, 3, 5), 96.0); // 5 de março de 2025
 
-                default:
-                    System.out.println("Opção inválida. Tente novamente.");
-            }
-        }
-    }
-//criação de um paciente com os respetivos dados acoplados
-    public static Paciente criarPaciente() {
-        Scanner scanner = new Scanner(System.in);
-        SimpleDateFormat dateFormat = new SimpleDateFormat("YYYY-MM-DD");
+        // O técnico de saúde adiciona as medições aos pacientes
+        tecnico.adicionarMedicao(paciente1, fc1);
+        tecnico.adicionarMedicao(paciente1, temp1);
+        tecnico.adicionarMedicao(paciente1, sat1);
 
-        System.out.print("Nome: ");
-        String nome = scanner.nextLine();
+        tecnico.adicionarMedicao(paciente2, fc2);
+        tecnico.adicionarMedicao(paciente2, temp2);
+        tecnico.adicionarMedicao(paciente2, sat2);
 
-        System.out.print("Data de Nascimento (YYYY-MM-DD): ");
-        String dataNascimentoStr = scanner.nextLine();
-        Date dataNascimento;
-        try {
-            dataNascimento = dateFormat.parse(dataNascimentoStr);
-        } catch (ParseException e) {
-            e.printStackTrace();
-            System.out.println("Data de nascimento inválida. Use o formato YYYY-MM-DD.");
-            return null;
-        }
+        tecnico.adicionarMedicao(paciente3, fc3);
+        tecnico.adicionarMedicao(paciente3, temp3);
+        tecnico.adicionarMedicao(paciente3, sat3);
 
-        System.out.print("Altura (em centimetros): ");
-        double altura = scanner.nextDouble();
+        tecnico.adicionarMedicao(paciente4, fc4);
+        tecnico.adicionarMedicao(paciente4, temp4);
+        tecnico.adicionarMedicao(paciente4, sat4);
 
-        System.out.print("Peso (em kg): ");
-        double peso = scanner.nextDouble();
+        // Criar Hospital e adicionar pacientes
+        Hospital hospital = new Hospital();
+        hospital.addPaciente(paciente1);
+        hospital.addPaciente(paciente2);
+        hospital.addPaciente(paciente3);
+        hospital.addPaciente(paciente4);
 
-        return new Paciente(nome, dataNascimento, altura, peso);
+        // Definir um intervalo de datas (exemplo: de 1 de março a 10 de março de 2025)
+        Date dataInicio = criarData(2025, 3, 1); // 1 de março de 2025
+        Date dataFim = criarData(2025, 3, 10); // 10 de março de 2025
+
+        // Exemplo de lista de pacientes (filtro por nome)
+        List<String> nomesFiltro = Arrays.asList("João Silva", "Carlos Pereira");
+
+        // Exemplo 1: Calcular dados para todos os pacientes no intervalo de datas
+        System.out.println("=== Exemplo 1: Cálculos para todos os pacientes ===");
+        hospital.calcularDados(dataInicio, dataFim, null); // Não filtra por nome
+
+        // Exemplo 2: Calcular dados apenas para um paciente específico
+        System.out.println("\n=== Exemplo 2: Cálculos para um paciente específico (João Silva) ===");
+        hospital.calcularDados(dataInicio, dataFim, Arrays.asList("João Silva")); // Filtro por nome
+
+        // Exemplo 3: Calcular dados apenas para um conjunto de pacientes (João Silva e Carlos Pereira)
+        System.out.println("\n=== Exemplo 3: Cálculos para pacientes João Silva e Carlos Pereira ===");
+        hospital.calcularDados(dataInicio, dataFim, nomesFiltro); // Filtro por nome
+
+        // Exemplo 4: Calcular dados para todos os pacientes, mas com outro intervalo de datas (1 a 5 de março)
+        Date dataInicioOutro = criarData(2025, 3, 1); // 1 de março de 2025
+        Date dataFimOutro = criarData(2025, 3, 5); // 5 de março de 2025
+        System.out.println("\n=== Exemplo 4: Cálculos para todos os pacientes (intervalo de 1 a 5 de março) ===");
+        hospital.calcularDados(dataInicioOutro, dataFimOutro, null); // Não filtra por nome
+
+        // Exemplo 5: Calcular dados para um único paciente no intervalo de datas específico
+        System.out.println("\n=== Exemplo 5: Cálculos para um único paciente (Maria Santos) ===");
+        hospital.calcularDados(dataInicio, dataFim, Arrays.asList("Maria Santos")); // Filtro por nome
     }
 
-    public static void pedirValores(List<Paciente> pacientes) {
-        Scanner sc = new Scanner(System.in);
-
-        System.out.println("Lista de Pacientes:");
-        for (Paciente paciente : pacientes) {
-            System.out.println(paciente);
-        }
-
-        System.out.print("Escolha o ID do paciente para inserir os valores de sinais vitais: ");
-        int pacienteId = sc.nextInt();
-
-        Paciente pacienteEscolhido = pacientes.stream()
-                .filter(p -> p.getId() == pacienteId)
-                .findFirst()
-                .orElse(null);
-
-        if (pacienteEscolhido == null) {
-            System.out.println("Paciente não encontrado!");
-            return;
-        }
-//verificação do valor de FC
-        boolean inserirMais = true;
-        while (inserirMais) {
-            double FC;
-            while (true) {
-                System.out.print("Insira o valor de FC: ");
-                FC = sc.nextDouble();
-                if (Verificacoes.verificarValoresFC(FC)) break;
-                System.out.println("Valor de Frequência Cardíaca Inválido.!");
-            }
-//verificação do valor de Sat
-            double Sat;
-            while (true) {
-                System.out.print("Insira o valor de Saturação: ");
-                Sat = sc.nextDouble();
-                if (Verificacoes.verificarValoresSat(Sat)) break;
-                System.out.println("Valor de Saturação inválido.");
-            }
-//verfificação do valor de Temp
-            double Temp;
-            while (true) {
-                System.out.print("Insira o valor de temperatura: ");
-                Temp = sc.nextDouble();
-                if (Verificacoes.verificarValoresTemp(Temp)) break;
-                System.out.println("Valor de Temperatura inválido.");
-            }
-//incrição de data e hora nos sinais
-            SinalVital sinalVital = new SinalVital(FC, Temp, Sat, "2025-03-22 10:00:00");
-
-            pacienteEscolhido.adicionarSinalVital(sinalVital);
-            System.out.println("Sinal Vital adicionado com sucesso!");
-
-            // Perguntar se deseja inserir mais sinais vitais
-            System.out.print("Deseja inserir mais sinais vitais para este paciente? (s/n): ");
-            String resposta = sc.next();
-            if (!resposta.equalsIgnoreCase("s")) {
-                inserirMais = false;
-            }
-        }
-
-        // Exibir todos os sinais vitais do paciente
-        System.out.println("Sinais Vitais do Paciente " + pacienteEscolhido.getNome() + ":");
-        for (SinalVital sv : pacienteEscolhido.getSinaisVitais()) {
-            System.out.println(sv);
-        }
+    // Método para criar data
+    private static Date criarData(int ano, int mes, int dia) {
+        Calendar cal = Calendar.getInstance();
+        cal.set(ano, mes - 1, dia, 0, 0, 0);  // Meses começam em 0, hora, minuto, segundo
+        cal.set(Calendar.MILLISECOND, 0);  // Definir milissegundos para 0
+        return cal.getTime();
     }
-
 }
