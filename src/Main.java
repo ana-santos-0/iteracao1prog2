@@ -2,15 +2,108 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
-        // Criar pacientes
+        // Criar pacientes e técnicos
         Paciente paciente1 = new Paciente("João Silva", new Date(1990-1900, 5, 15), 1.75, 70);
         Paciente paciente2 = new Paciente("Maria Santos", new Date(1985-1900, 2, 10), 1.68, 65);
-        Paciente paciente3 = new Paciente("Carlos Pereira", new Date(2000-1900, 7, 22), 1.80, 80);
+        Paciente paciente3 = new Paciente("Carlos Oliveira", new Date(1980-1900, 3, 20), 1.80, 80);
         Paciente paciente4 = new Paciente("Ana Costa", new Date(1995-1900, 10, 5), 1.60, 55);
 
-        // Criar técnicos de saúde
         TecnicoSaude tecnico1 = new TecnicoSaude("Carlos Oliveira", new Date(1980-1900, 3, 20), 1.80, 80);
         TecnicoSaude tecnico2 = new TecnicoSaude("Ana Silva", new Date(1985-1900, 11, 15), 1.65, 60);
+
+        Hospital hospital = new Hospital();
+        hospital.addPaciente(paciente1);
+        hospital.addPaciente(paciente2);
+        hospital.addPaciente(paciente3);
+        hospital.addPaciente(paciente4);
+        hospital.addTecnicoSaude(tecnico1);
+        hospital.addTecnicoSaude(tecnico2);
+
+        Scanner scanner = new Scanner(System.in);
+        boolean exit = false;
+
+        while (!exit) {
+            // Menu
+            System.out.println("=== Sistema de Monitorização Hospitalar ===");
+            System.out.println("1. Listar Técnicos de Saúde");
+            System.out.println("2. Adicionar Paciente");
+            System.out.println("3. Adicionar Técnico de Saúde");
+            System.out.println("4. Calcular Dados para Intervalo de Datas");
+            System.out.println("5. Sair");
+            System.out.print("Escolha uma opção: ");
+
+            int escolha = scanner.nextInt();
+            scanner.nextLine(); // Limpar o buffer
+
+                    switch (escolha) {
+                        case 1:
+                            // Listar técnicos de saúde
+                            System.out.println("\n=== Técnicos de Saúde ===");
+                            hospital.listarTecnicos();
+                            break;
+
+                        case 2:
+                            // Adicionar paciente
+                            System.out.print("\nDigite o nome do paciente: ");
+                            String nomePaciente = scanner.nextLine();
+                            System.out.print("Digite a data de nascimento (dd/mm/yyyy): ");
+                            String dataNascimento = scanner.nextLine();
+                            String[] partes = dataNascimento.split("/");
+                            Date data = new Date(Integer.parseInt(partes[2])-1900, Integer.parseInt(partes[1])-1, Integer.parseInt(partes[0]));
+                            System.out.print("Digite a altura do paciente: ");
+                            double altura = scanner.nextDouble();
+                            System.out.print("Digite o peso do paciente: ");
+                            double peso = scanner.nextDouble();
+                            Paciente paciente = new Paciente(nomePaciente, data, altura, peso);
+                            hospital.addPaciente(paciente);
+                            System.out.println("Paciente adicionado com sucesso!");
+                            break;
+
+                        case 3:
+                            // Adicionar técnico de saúde
+                            System.out.print("\nDigite o nome do técnico de saúde: ");
+                            String nomeTecnico = scanner.nextLine();
+                            System.out.print("Digite a data de nascimento do técnico (dd/mm/yyyy): ");
+                            String dataNascimentoTecnico = scanner.nextLine();
+                            partes = dataNascimentoTecnico.split("/");
+                            Date dataTecnico = new Date(Integer.parseInt(partes[2])-1900, Integer.parseInt(partes[1])-1, Integer.parseInt(partes[0]));
+                            System.out.print("Digite a altura do técnico de saúde: ");
+                            double alturaTecnico = scanner.nextDouble();
+                            System.out.print("Digite o peso do técnico de saúde: ");
+                            double pesoTecnico = scanner.nextDouble();
+                            TecnicoSaude tecnico = new TecnicoSaude(nomeTecnico, dataTecnico, alturaTecnico, pesoTecnico);
+                            hospital.addTecnicoSaude(tecnico);
+                            System.out.println("Técnico de saúde adicionado com sucesso!");
+                            break;
+
+                        case 4:
+                            // Calcular dados para intervalo de datas
+                            System.out.print("\nDigite a data de início (dd/mm/yyyy): ");
+                            String dataInicioStr = scanner.nextLine();
+                            partes = dataInicioStr.split("/");
+                            Date dataInicio = new Date(Integer.parseInt(partes[2])-1900, Integer.parseInt(partes[1])-1, Integer.parseInt(partes[0]));
+
+                            System.out.print("Digite a data de fim (dd/mm/yyyy): ");
+                            String dataFimStr = scanner.nextLine();
+                            partes = dataFimStr.split("/");
+                            Date dataFim = new Date(Integer.parseInt(partes[2])-1900, Integer.parseInt(partes[1])-1, Integer.parseInt(partes[0]));
+
+                            hospital.calcularDados(dataInicio, dataFim, null, null); // Sem filtro
+                            break;
+
+                        case 5:
+                            // Sair
+                            exit = true;
+                            System.out.println("Saindo...");
+                            break;
+
+                        default:
+                            System.out.println("Opção inválida! Tente novamente.");
+                    }
+                }
+
+                scanner.close();
+
 
         // Criar medições com diferentes datas
         FrequenciaCardiaca fc1 = new FrequenciaCardiaca(criarData(2025, 3, 1), 85); // 1 de março de 2025
@@ -46,16 +139,6 @@ public class Main {
         tecnico1.adicionarMedicao(paciente4, temp4);
         tecnico1.adicionarMedicao(paciente4, sat4);
 
-        // Criar Hospital e adicionar pacientes
-        Hospital hospital = new Hospital();
-        hospital.addPaciente(paciente1);
-        hospital.addPaciente(paciente2);
-        hospital.addPaciente(paciente3);
-        hospital.addPaciente(paciente4);
-
-        // Adicionar técnicos de saúde
-        hospital.addTecnicoSaude(tecnico1);
-        hospital.addTecnicoSaude(tecnico2);
 
         // Listar técnicos de saúde
         System.out.println("=== Técnicos de Saúde no Hospital ===");
@@ -117,3 +200,5 @@ public class Main {
         return cal.getTime();
     }
 }
+
+
