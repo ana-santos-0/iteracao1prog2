@@ -2,6 +2,7 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
+
         // Criar pacientes e técnicos
         Paciente paciente1 = new Paciente("João Silva", new Date(1990-1900, 5, 15), 1.75, 70);
         Paciente paciente2 = new Paciente("Maria Santos", new Date(1985-1900, 2, 10), 1.68, 65);
@@ -191,14 +192,8 @@ public class Main {
         System.out.println("\n=== Exemplo 9: Listar tecnicos ===");
         hospital.listarTecnicos();
     }
-
-    // Método para criar data
+    // Metodo para criar data
     private static Date criarData(int ano, int mes, int dia) {
-        Calendar cal = Calendar.getInstance();
-        cal.set(ano, mes - 1, dia, 0, 0, 0);  // Meses começam em 0, hora, minuto, segundo
-        cal.set(Calendar.MILLISECOND, 0);  // Definir milissegundos para 0
-        return cal.getTime();
+        return new Date(2025, 03, 03);
     }
 }
-
-
