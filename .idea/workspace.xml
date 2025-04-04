@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0fa05dfe-1b8e-402e-86f2-02fe34441439" name="Changes" comment="">
+    <list default="true" id="a135aabb-0e90-418b-87ef-344646b13f05" name="Changes" comment="Alterações gerais">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Hospital.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Hospital.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Paciente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Paciente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TecnicoSaude.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TecnicoSaude.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,10 +17,23 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;ana-santos-0&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/ana-santos-0/iteracao1prog2.git&quot;,
+    &quot;accountId&quot;: &quot;4dd93f99-3df2-4927-841d-c503771999b4&quot;
+  }
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1
 }</component>
   <component name="ProjectId" id="2v9NTSCVKdDL0RXc2Bwra73f808" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -49,15 +61,15 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-a94e463ab2e7-intellij.indexing.shared.core-IU-243.26053.27" />
-        <option value="bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-IU-243.26053.27" />
+        <option value="bundled-jdk-9823dce3aa75-125ca727e0f0-intellij.indexing.shared.core-IU-243.24978.46" />
+        <option value="bundled-js-predefined-d6986cc7102b-76f8388c3a79-JavaScript-IU-243.24978.46" />
       </set>
     </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="0fa05dfe-1b8e-402e-86f2-02fe34441439" name="Changes" comment="" />
+      <changelist id="a135aabb-0e90-418b-87ef-344646b13f05" name="Changes" comment="Alterações gerais" />
       <created>1743553338492</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -65,6 +77,8 @@
       <workItem from="1743553339766" duration="1391000" />
       <workItem from="1743555307248" duration="85000" />
       <workItem from="1743555406647" duration="558000" />
+      <workItem from="1743757851146" duration="193000" />
+      <workItem from="1743806697157" duration="478000" />
     </task>
     <servers />
   </component>

@@ -3,14 +3,14 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) {
         // Criar pacientes
-        Paciente paciente1 = new Paciente("João Silva", new Date(1990-1900, 5, 15), 1.75, 70);
-        Paciente paciente2 = new Paciente("Maria Santos", new Date(1985-1900, 2, 10), 1.68, 65);
-        Paciente paciente3 = new Paciente("Carlos Pereira", new Date(2000-1900, 7, 22), 1.80, 80);
-        Paciente paciente4 = new Paciente("Ana Costa", new Date(1995-1900, 10, 5), 1.60, 55);
+        Paciente paciente1 = new Paciente("João Silva", new Date(1990 - 1900, 5, 15), 1.75, 70);
+        Paciente paciente2 = new Paciente("Maria Santos", new Date(1985 - 1900, 2, 10), 1.68, 65);
+        Paciente paciente3 = new Paciente("Carlos Pereira", new Date(2000 - 1900, 7, 22), 1.80, 80);
+        Paciente paciente4 = new Paciente("Ana Costa", new Date(1995 - 1900, 10, 5), 1.60, 55);
 
         // Criar técnicos de saúde
-        TecnicoSaude tecnico1 = new TecnicoSaude("Carlos Oliveira", new Date(1980-1900, 3, 20), 1.80, 80);
-        TecnicoSaude tecnico2 = new TecnicoSaude("Ana Silva", new Date(1985-1900, 11, 15), 1.65, 60);
+        TecnicoSaude tecnico1 = new TecnicoSaude("Carlos Oliveira", new Date(1980 - 1900, 3, 20), 1.80, 80);
+        TecnicoSaude tecnico2 = new TecnicoSaude("Ana Silva", new Date(1985 - 1900, 11, 15), 1.65, 60);
 
         // Criar medições com diferentes datas
         FrequenciaCardiaca fc1 = new FrequenciaCardiaca(criarData(2025, 3, 1), 85); // 1 de março de 2025
@@ -108,12 +108,8 @@ public class Main {
         System.out.println("\n=== Exemplo 9: Listar tecnicos ===");
         hospital.listarTecnicos();
     }
-
-    // Método para criar data
+    // Metodo para criar data
     private static Date criarData(int ano, int mes, int dia) {
-        Calendar cal = Calendar.getInstance();
-        cal.set(ano, mes - 1, dia, 0, 0, 0);  // Meses começam em 0, hora, minuto, segundo
-        cal.set(Calendar.MILLISECOND, 0);  // Definir milissegundos para 0
-        return cal.getTime();
+        return new Date(2025, 03, 03);
     }
-}
+    }
