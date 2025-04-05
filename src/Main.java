@@ -9,7 +9,7 @@ public class Main {
         Paciente paciente3 = new Paciente("Carlos Oliveira", new Date(1980 - 1900, 3, 20), 1.80, 80);
         Paciente paciente4 = new Paciente("Ana Costa", new Date(1995 - 1900, 10, 5), 1.60, 55);
 
-        TecnicoSaude tecnico1 = new TecnicoSaude("Carlos Oliveira", new Date(1980 - 1900, 3, 20), 1.80, 80);
+        TecnicoSaude tecnico1 = new TecnicoSaude("Rui Oliveira", new Date(1980 - 1900, 3, 20), 1.80, 80);
         TecnicoSaude tecnico2 = new TecnicoSaude("Ana Silva", new Date(1985 - 1900, 11, 15), 1.65, 60);
 
         Hospital hospital = new Hospital();
@@ -59,40 +59,18 @@ public class Main {
                     break;
 
                 case 2:
-                    System.out.print("\nNome do paciente: ");
-                    String nomePaciente = scanner.nextLine();
-                    System.out.print("Insira a data de nascimento (dd/mm/yyyy): ");
-                    String[] partes = scanner.nextLine().split("/");
-                    Date dataPac = new Date(Integer.parseInt(partes[2]) - 1900, Integer.parseInt(partes[1]) - 1, Integer.parseInt(partes[0]));
-                    System.out.print("Insira a altura: ");
-                    double altPac = scanner.nextDouble();
-                    System.out.print("Insira o peso: ");
-                    double pesPac = scanner.nextDouble();
-                    scanner.nextLine();
-                    Paciente novoPaciente = new Paciente(nomePaciente, dataPac, altPac, pesPac);
-                    hospital.addPaciente(novoPaciente);
-                    System.out.println("Paciente adicionado com sucesso!");
+                    Paciente.infoPaciente();
+                    hospital.addPaciente(Paciente.novoPaciente);
                     break;
 
                 case 3:
-                    System.out.print("\nNome do técnico: ");
-                    String nomeTec = scanner.nextLine();
-                    System.out.print("Insira a data de nascimento (dd/mm/yyyy): ");
-                    partes = scanner.nextLine().split("/");
-                    Date dataTec = new Date(Integer.parseInt(partes[2]) - 1900, Integer.parseInt(partes[1]) - 1, Integer.parseInt(partes[0]));
-                    System.out.print("Insira a altura: ");
-                    double altTec = scanner.nextDouble();
-                    System.out.print("Insira o peso: ");
-                    double pesTec = scanner.nextDouble();
-                    scanner.nextLine();
-                    TecnicoSaude novoTec = new TecnicoSaude(nomeTec, dataTec, altTec, pesTec);
-                    hospital.addTecnicoSaude(novoTec);
-                    System.out.println("Técnico adicionado com sucesso!");
+                    TecnicoSaude.infoTecnicoSaude();
+                    hospital.addTecnicoSaude(TecnicoSaude.novoTecnicoSaude);
                     break;
 
                 case 4:
                     System.out.print("\nData de início (dd/mm/yyyy): ");
-                    partes = scanner.nextLine().split("/");
+                    String[] partes = scanner.nextLine().split("/");
                     Date dataInicio = new Date(Integer.parseInt(partes[2]) - 1900, Integer.parseInt(partes[1]) - 1, Integer.parseInt(partes[0]));
 
                     System.out.print("Data de fim (dd/mm/yyyy): ");
