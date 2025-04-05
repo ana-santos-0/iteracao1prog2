@@ -4,14 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a135aabb-0e90-418b-87ef-344646b13f05" name="Changes" comment="Alterações gerais">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Hospital.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Hospital.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Medicao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Medicao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Paciente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Paciente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TecnicoSaude.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TecnicoSaude.java" afterDir="false" />
-    </list>
+    <list default="true" id="a135aabb-0e90-418b-87ef-344646b13f05" name="Changes" comment="Alterações gerais" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -98,12 +91,16 @@
       <workItem from="1743757851146" duration="193000" />
       <workItem from="1743806697157" duration="478000" />
       <workItem from="1743864876131" duration="2931000" />
-      <workItem from="1743870483793" duration="5337000" />
+      <workItem from="1743870483793" duration="5622000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Alterações gerais" />
+    <option name="LAST_COMMIT_MESSAGE" value="Alterações gerais" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
