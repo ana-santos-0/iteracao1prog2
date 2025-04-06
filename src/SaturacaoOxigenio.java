@@ -21,4 +21,8 @@ public class SaturacaoOxigenio implements Medicao {
     public double getValor() {
         return valor;
     }
+
+    public String getTipo() {
+        return "Saturação de Oxigénio";
+    }
 }

@@ -113,7 +113,7 @@ public class Main {
                     Paciente pacienteSelecionado = hospital.getPacientePorNome(nomePaciente);
                     if (pacienteSelecionado == null) {
                         System.out.println("Paciente não encontrado.");
-                        break;
+                        return;
                     }
 
                     System.out.println("Tipo de medição (1-Frequência Cardíaca, 2-Temperatura, 3-Saturação Oxigênio): ");

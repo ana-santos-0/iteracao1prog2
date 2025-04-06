@@ -7,8 +7,9 @@ import java.util.List;
  */
 public interface Medicao {
     Date getData();
-
-    double getValor();}
+    double getValor();
+    String getTipo();
+}
 
 /*
     public void valores() {

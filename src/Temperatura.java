@@ -21,4 +21,8 @@ public class Temperatura implements Medicao {
     public double getValor() {
         return valor;
     }
+
+    public String getTipo() {
+        return "Temperatura";
+    }
 }

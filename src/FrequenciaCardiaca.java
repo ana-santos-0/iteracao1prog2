@@ -21,4 +21,8 @@ public class FrequenciaCardiaca implements Medicao {
     public double getValor() {
         return valor;
     }
+
+    public String getTipo() {
+        return "Frequência Cardíaca";
+    }
 }

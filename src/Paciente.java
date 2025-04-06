@@ -1,3 +1,6 @@
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 /**
@@ -14,6 +17,19 @@ public class Paciente extends Pessoa {
         medicoes = new ArrayList<Medicao>();
     }
 
+
+    public static LocalDate normalizarData(String dataString) {
+        // Define o formato da data que estamos esperando (dd/MM/yyyy)
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+
+        // Converte a string para LocalDate
+        LocalDate localDate = LocalDate.parse(dataString, formatter);
+
+        return localDate;
+    }
+
+
+
     /**
      * Adiciona uma medição à lista de medições do paciente.
      *
@@ -27,16 +43,12 @@ public class Paciente extends Pessoa {
      * Normaliza uma data para garantir que apenas a parte da data (ano, mês, dia) é considerada.
      */
     private Date normalizarData(Date data) {
-        Calendar cal = Calendar.getInstance();
-        cal.setTime(data);
-        cal.set(Calendar.HOUR_OF_DAY, 0);
-        cal.set(Calendar.MINUTE, 0);
-        cal.set(Calendar.SECOND, 0);
-        cal.set(Calendar.MILLISECOND, 0);
-        return cal.getTime();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-mm-dd");
+        String dataFormatada = sdf.format(data);
+        return new Date(dataFormatada);
     }
 
-    public static void infoPaciente() {
+            public static void infoPaciente() {
         System.out.print("\nNome do paciente: ");
         Scanner scanner = new Scanner(System.in);
         String nomePaciente = scanner.nextLine();
@@ -50,7 +62,6 @@ public class Paciente extends Pessoa {
         scanner.nextLine();
         Paciente novoPaciente = new Paciente(nomePaciente, dataPac, altPac, pesPac);
         System.out.println("Paciente adicionado com sucesso!");
-        return;
     }
 
     /**
