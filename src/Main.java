@@ -91,8 +91,8 @@ public class Main {
                             nomes.add(nome);
                         }
                     }
-
-                    System.out.print("Ordenar por (Ascendente-Name, Descendente-Name, Asc-Date, Desc-Date) ou enter para nenhum: ");
+2
+                    System.out.print("Ordenar por (Asc-Name, Desc-Name, Asc-Date, Desc-Date) ou enter para nenhum: ");
                     String ordem = scanner.nextLine();
                     if (ordem.isEmpty()) ordem = null;
 
@@ -116,7 +116,7 @@ public class Main {
                         break;
                     }
 
-                    System.out.println("Tipo de medição (1-Frequência Cardíaca, 2-Temperatura, 3-Saturação Oxigênio): ");
+                    System.out.println("Tipo de medição (1-Frequência Cardíaca, 2-Temperatura, 3-Saturação Oxigénio): ");
                     int tipo = scanner.nextInt();
                     scanner.nextLine();
 
