@@ -119,4 +119,10 @@ public class Hospital {
         }
         return null;
     }
+    public TecnicoSaude getTecnicoPorNome(String nome) {
+        for (TecnicoSaude t : tecnicosDeSaude) {
+            if (t.getNome().equalsIgnoreCase(nome)) return t;
+        }
+        return null;
+    }
 }

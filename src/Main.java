@@ -19,7 +19,7 @@ public class Main {
         hospital.addPaciente(paciente4);
         hospital.addTecnicoSaude(tecnico1);
         hospital.addTecnicoSaude(tecnico2);
-
+/*
         // Criar medições e atribuir
         tecnico1.adicionarMedicao(paciente1, new FrequenciaCardiaca(criarData(2025, 3, 1), 85));
         tecnico1.adicionarMedicao(paciente1, new Temperatura(criarData(2025, 3, 1), 37.0));
@@ -36,7 +36,7 @@ public class Main {
         tecnico1.adicionarMedicao(paciente4, new FrequenciaCardiaca(criarData(2025, 3, 5), 80));
         tecnico1.adicionarMedicao(paciente4, new Temperatura(criarData(2025, 3, 5), 36.8));
         tecnico1.adicionarMedicao(paciente4, new SaturacaoOxigenio(criarData(2025, 3, 5), 96.0));
-
+*/
         Scanner scanner = new Scanner(System.in);
         boolean exit = false;
 
@@ -99,6 +99,13 @@ public class Main {
                     break;
 
                 case 5:
+                    System.out.print("Nome do técnico: ");
+                    String nomeTec = scanner.nextLine();
+                    TecnicoSaude tecnico = hospital.getTecnicoPorNome(nomeTec);
+                    if (tecnico == null) {
+                        System.out.println("Técnico não encontrado.");
+                        break;
+                    }
                     System.out.print("Nome do paciente: ");
                     String nomePaciente = scanner.nextLine();
 
