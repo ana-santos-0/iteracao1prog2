@@ -153,9 +153,4 @@ public class Main {
 
         scanner.close();
     }
-
-    // Corrigido: agora cria a data corretamente
-    private static Date criarData(int ano, int mes, int dia) {
-        return new Date(ano - 1900, mes - 1, dia);
-    }
 }
