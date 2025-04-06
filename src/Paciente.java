@@ -43,9 +43,9 @@ public class Paciente extends Pessoa {
      * Normaliza uma data para garantir que apenas a parte da data (ano, mês, dia) é considerada.
      */
     private Date normalizarData(Date data) {
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-mm-dd");
-        String dataFormatada = sdf.format(data);
-        return new Date(dataFormatada);
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        sdf.format(data);
+        return data;
     }
 
             public static void infoPaciente() {
@@ -222,9 +222,7 @@ public class Paciente extends Pessoa {
         double temperaturaMedia = calcularMedia("Temperatura", null, null);
         double saturacaoMedia = calcularMedia("Saturacao", null, null);
 
-        if (frequenciaCardiacaMedia <= 0 || temperaturaMedia <= 0 || saturacaoMedia <= 0) {
-            return "Erro de leitura";
-        } else if (frequenciaCardiacaMedia < 60 || frequenciaCardiacaMedia > 120 ||
+        if (frequenciaCardiacaMedia < 60 || frequenciaCardiacaMedia > 120 ||
                 temperaturaMedia < 36 || temperaturaMedia > 38.5 ||
                 saturacaoMedia < 90) {
             return "Crítico";
