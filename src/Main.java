@@ -65,8 +65,9 @@ public class Main {
                     break;
 
                 case 3:
-                    TecnicoSaude.infoTecnicoSaude();
-                    hospital.addTecnicoSaude(TecnicoSaude.novoTecnicoSaude);
+                    TecnicoSaude novoTecnico = TecnicoSaude.criarTecnicoSaude();
+                    hospital.addTecnicoSaude(novoTecnico);
+
                     break;
 
                 case 4:

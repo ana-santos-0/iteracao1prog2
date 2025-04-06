@@ -35,4 +35,22 @@ public class TecnicoSaude extends Pessoa {
         System.out.println("Técnico adicionado com sucesso!");
         return;
     }
+    public static TecnicoSaude criarTecnicoSaude() {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Nome do Técnico de Saúde: ");
+        String nome = sc.nextLine();
+
+        System.out.print("Data de nascimento (dd/mm/yyyy): ");
+        String[] dataPartes = sc.nextLine().split("/");
+        Date dataNascimento = new Date(Integer.parseInt(dataPartes[2]) - 1900, Integer.parseInt(dataPartes[1]) - 1, Integer.parseInt(dataPartes[0]));
+
+        System.out.print("Altura (em metros): ");
+        double altura = Double.parseDouble(sc.nextLine());
+
+        System.out.print("Peso (em kg): ");
+        double peso = Double.parseDouble(sc.nextLine());
+
+        return new TecnicoSaude(nome, dataNascimento, altura, peso);
+    }
+
 }
