@@ -19,24 +19,7 @@ public class Main {
         hospital.addPaciente(paciente4);
         hospital.addTecnicoSaude(tecnico1);
         hospital.addTecnicoSaude(tecnico2);
-/*
-        // Criar medições e atribuir
-        tecnico1.adicionarMedicao(paciente1, new FrequenciaCardiaca(criarData(2025, 3, 1), 85));
-        tecnico1.adicionarMedicao(paciente1, new Temperatura(criarData(2025, 3, 1), 37.0));
-        tecnico1.adicionarMedicao(paciente1, new SaturacaoOxigenio(criarData(2025, 3, 1), 97.0));
 
-        tecnico1.adicionarMedicao(paciente2, new FrequenciaCardiaca(criarData(2025, 3, 8), 90));
-        tecnico1.adicionarMedicao(paciente2, new Temperatura(criarData(2025, 3, 8), 37.5));
-        tecnico1.adicionarMedicao(paciente2, new SaturacaoOxigenio(criarData(2025, 3, 8), 95.0));
-
-        tecnico1.adicionarMedicao(paciente3, new FrequenciaCardiaca(criarData(2025, 3, 3), 92));
-        tecnico1.adicionarMedicao(paciente3, new Temperatura(criarData(2025, 3, 3), 37.2));
-        tecnico1.adicionarMedicao(paciente3, new SaturacaoOxigenio(criarData(2025, 3, 3), 98.0));
-
-        tecnico1.adicionarMedicao(paciente4, new FrequenciaCardiaca(criarData(2025, 3, 5), 80));
-        tecnico1.adicionarMedicao(paciente4, new Temperatura(criarData(2025, 3, 5), 36.8));
-        tecnico1.adicionarMedicao(paciente4, new SaturacaoOxigenio(criarData(2025, 3, 5), 96.0));
-*/
         Scanner scanner = new Scanner(System.in);
         boolean exit = false;
 
