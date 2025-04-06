@@ -91,7 +91,7 @@ public class Main {
                             nomes.add(nome);
                         }
                     }
-2
+
                     System.out.print("Ordenar por (Asc-Name, Desc-Name, Asc-Date, Desc-Date) ou enter para nenhum: ");
                     String ordem = scanner.nextLine();
                     if (ordem.isEmpty()) ordem = null;
