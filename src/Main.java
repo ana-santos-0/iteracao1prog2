@@ -124,9 +124,18 @@ public class Main {
                     String[] dataParts = scanner.nextLine().split("/");
                     Date data = new Date(Integer.parseInt(dataParts[2]) - 1900, Integer.parseInt(dataParts[1]) - 1, Integer.parseInt(dataParts[0]));
 
-                    System.out.print("Valor da medição: ");
-                    double valor = scanner.nextDouble();
-                    scanner.nextLine();
+                    double valor = 0;
+                    while (valor <= 0)
+                    {
+                        System.out.print("Valor da medição: ");
+                        valor = scanner.nextDouble();
+                        scanner.nextLine();
+
+                        if(valor <= 0)
+                        {
+                            System.out.print("Erro de leitura. Digite novamente.\n");
+                        }
+                    }
 
                     Medicao novaMedicao = null;
                     switch (tipo) {
@@ -146,7 +155,6 @@ public class Main {
 
                     if (novaMedicao != null) {
                         tecnico1.adicionarMedicao(pacienteSelecionado, novaMedicao); // usando técnico1 como exemplo
-                        System.out.println("Medição adicionada com sucesso.");
                     }
                     break;
 
