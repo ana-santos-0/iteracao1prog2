@@ -46,7 +46,8 @@ public class Main {
             System.out.println("2. Adicionar Paciente");
             System.out.println("3. Adicionar Técnico de Saúde");
             System.out.println("4. Calcular Dados para Intervalo de Datas");
-            System.out.println("5. Sair");
+            System.out.println("5. Adicionar Medição a Paciente");
+            System.out.println("6. Sair");
             System.out.print("Escolha uma opção: ");
 
             int escolha = scanner.nextInt();
@@ -98,6 +99,50 @@ public class Main {
                     break;
 
                 case 5:
+                    System.out.print("Nome do paciente: ");
+                    String nomePaciente = scanner.nextLine();
+
+                    Paciente pacienteSelecionado = hospital.getPacientePorNome(nomePaciente);
+                    if (pacienteSelecionado == null) {
+                        System.out.println("Paciente não encontrado.");
+                        break;
+                    }
+
+                    System.out.println("Tipo de medição (1-Frequência Cardíaca, 2-Temperatura, 3-Saturação Oxigênio): ");
+                    int tipo = scanner.nextInt();
+                    scanner.nextLine();
+
+                    System.out.print("Data da medição (dd/mm/yyyy): ");
+                    String[] dataParts = scanner.nextLine().split("/");
+                    Date data = new Date(Integer.parseInt(dataParts[2]) - 1900, Integer.parseInt(dataParts[1]) - 1, Integer.parseInt(dataParts[0]));
+
+                    System.out.print("Valor da medição: ");
+                    double valor = scanner.nextDouble();
+                    scanner.nextLine();
+
+                    Medicao novaMedicao = null;
+                    switch (tipo) {
+                        case 1:
+                            novaMedicao = new FrequenciaCardiaca(data, (int) valor);
+                            break;
+                        case 2:
+                            novaMedicao = new Temperatura(data, valor);
+                            break;
+                        case 3:
+                            novaMedicao = new SaturacaoOxigenio(data, valor);
+                            break;
+                        default:
+                            System.out.println("Tipo inválido.");
+                            break;
+                    }
+
+                    if (novaMedicao != null) {
+                        tecnico1.adicionarMedicao(pacienteSelecionado, novaMedicao); // usando técnico1 como exemplo
+                        System.out.println("Medição adicionada com sucesso.");
+                    }
+                    break;
+
+                case 6:
                     exit = true;
                     System.out.println("A sair...");
                     break;

@@ -110,4 +110,13 @@ public class Hospital {
             System.out.println("----------------------------------");
         }
     }
+
+    public Paciente getPacientePorNome(String nome) {
+        for (Paciente p : pacientes) {
+            if (p.getNome().equalsIgnoreCase(nome)) {
+                return p;
+            }
+        }
+        return null;
+    }
 }
