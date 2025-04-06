@@ -2,7 +2,6 @@ import java.util.Date;
 import java.util.Scanner;
 
 public class TecnicoSaude extends Pessoa {
-    public static TecnicoSaude novoTecnicoSaude;
 
     public TecnicoSaude(String nome, Date dataNascimento, double altura, double peso) {
         super(nome, dataNascimento, altura, peso);
@@ -14,9 +13,14 @@ public class TecnicoSaude extends Pessoa {
      * @param paciente Paciente ao qual a medição será adicionada.
      * @param medicao  Medição a ser adicionada.
      */
+
     public void adicionarMedicao(Paciente paciente, Medicao medicao) {
-        paciente.addMedicao(medicao); // O metodo addMedicao ainda é chamado para adicionar a medição ao paciente
-        System.out.println("Medição de tipo " + medicao.getClass().getSimpleName() + " foi adicionada ao paciente " + paciente.getNome());
+        if (paciente != null && medicao != null) {
+            paciente.addMedicao(medicao);  // Metodo addMedicao é chamado para adicionar a medição ao paciente
+            System.out.println("Medição de tipo " + medicao.getClass().getSimpleName() + " foi adicionada ao paciente " + paciente.getNome());
+        } else {
+            System.out.println("Erro: Paciente ou Medição inválida.");
+        }
     }
 
     public static void infoTecnicoSaude() {
