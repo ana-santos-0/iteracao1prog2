@@ -55,9 +55,9 @@ public class Paciente extends Pessoa {
         System.out.println("Insira a data de nascimento (dd/mm/yyyy): ");
         String[] partes = scanner.nextLine().split("/");
         Date dataPac = new Date(Integer.parseInt(partes[2]) - 1900, Integer.parseInt(partes[1]) - 1, Integer.parseInt(partes[0]));
-        System.out.print("Insira a altura: ");
+        System.out.print("Insira a altura (cm): ");
         double altPac = scanner.nextDouble();
-        System.out.print("Insira o peso: ");
+        System.out.print("Insira o peso (kg): ");
         double pesPac = scanner.nextDouble();
         scanner.nextLine();
         Paciente novoPaciente = new Paciente(nomePaciente, dataPac, altPac, pesPac);
