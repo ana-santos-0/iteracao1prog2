@@ -9,7 +9,14 @@ public class SaturacaoOxigenio implements Medicao {
 
     public SaturacaoOxigenio(Date data, double valor) {
         this.data = data;
-        this.valor = valor;
+        // Garante que o valor está entre 0 e 100
+        if (valor > 100) {
+            this.valor = 100;
+        } else if (valor < 0) {
+            this.valor = 0;
+        } else {
+            this.valor = valor;
+        }
     }
 
     @Override

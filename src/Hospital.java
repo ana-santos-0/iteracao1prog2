@@ -106,6 +106,7 @@ public class Hospital {
             System.out.println("Mínimo de Saturação: " + paciente.calcularMinimo("Saturação", dataInicio, dataFim));
             System.out.println("Máximo de Saturação: " + paciente.calcularMaximo("Saturação", dataInicio, dataFim));
 
+
             System.out.println("Classificação: " + paciente.classificarPaciente());
             System.out.println("----------------------------------");
         }

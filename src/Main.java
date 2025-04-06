@@ -137,7 +137,10 @@ public class Main {
                     }
 
                     if (novaMedicao != null) {
-                        tecnico1.adicionarMedicao(pacienteSelecionado, novaMedicao); // usando técnico1 como exemplo
+                        tecnico.adicionarMedicao(pacienteSelecionado, novaMedicao); // usando técnico1 como exemplo
+                    }
+                    if (tipo == 3 && valor > 100) {
+                        System.out.println("Nota: Valor de saturação superior a 100 foi ajustado automaticamente para 100.");
                     }
                     break;
 
@@ -152,5 +155,10 @@ public class Main {
         }
 
         scanner.close();
+    }
+
+    // Corrigido: agora cria a data corretamente
+    private static Date criarData(int ano, int mes, int dia) {
+        return new Date(ano - 1900, mes - 1, dia);
     }
 }
